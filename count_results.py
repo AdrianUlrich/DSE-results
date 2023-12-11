@@ -3,20 +3,6 @@
 import glob
 
 
-def main():
-    # print header
-    header_elements = ["linter", "hw0", "hw1", "hw2", "hw3"]
-    # pad with spaces
-    header_elements = [x.ljust(12) for x in header_elements]
-    print("| ".join(header_elements))
-    # for all files like *.csv in folder count the different results
-    for file in glob.glob("*.csv"):
-        count_results(file)
-
-
-if __name__ == '__main__':
-    main()
-
 def count_results(file):
     lines: list[str]
     with open(file) as f:
@@ -76,3 +62,17 @@ def count_results(file):
     print(f"{counters['hw2']:2}/{counters['hw2total']:2}({counters['hw2%']:3}%)", end=s)
     print(f"{counters['hw3']:2}/{counters['hw3total']:2}({counters['hw3%']:3}%)")
 
+
+def main():
+    # print header
+    header_elements = ["linter", "hw0", "hw1", "hw2", "hw3"]
+    # pad with spaces
+    header_elements = [x.ljust(12) for x in header_elements]
+    print("| ".join(header_elements))
+    # for all files like *.csv in folder count the different results
+    for file in glob.glob("*.csv"):
+        count_results(file)
+
+
+if __name__ == '__main__':
+    main()
